@@ -1,0 +1,1 @@
+# Spring Boot Sample Applications Landing Page
