@@ -15,5 +15,7 @@
 }
 .is-vertical-bottom {
     vertical-align: bottom;;
-
+}
+.text-center {
+    text-align: center;
 }

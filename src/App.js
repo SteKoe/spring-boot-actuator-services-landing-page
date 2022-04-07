@@ -1,8 +1,8 @@
-import axios from "axios";
 import {useEffect, useState} from "react";
 import {springBootDefinedActuators, springBootVersions} from "./config";
 import {LegacyEndpointChecker} from "./LegacyEndpointChecker";
 import {ActuatorEndpointDiscoverer} from "./ActuatorEndpointDiscoverer";
+import {Message} from "./Message";
 
 
 export function App() {
@@ -36,32 +36,44 @@ export function App() {
     }, [])
 
     return loading ? (<span>Loading data...</span>) : (
-        <table className="table is-striped is-narrow">
-            <thead>
-            <tr>
-                <th rowSpan={2} className="is-vertical-bottom">Actuator</th>
-                <th colSpan={services.length} className="has-text-centered has-no-borders">Spring Boot Service
-                    Version
-                </th>
-            </tr>
-            <tr>
-                {services.map(service => <th key={`${service.version}-header`}>{service.version}</th>)}
-            </tr>
-            </thead>
-            <tbody>
-            {[...springBootDefinedActuators].sort().map((actuator, row) => (
-                <tr key={`${actuator}-${row}`}>
-                    <td>{actuator}</td>
+        <>
+            <h1 className="title">Spring Boot Sample Applications</h1>
+            <Message>
+                <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator" target="_blank">Spring Boot's Actuators</a> provide production ready features to help you monitor and manage your application.
+            </Message>
+            <table className="table is-striped is-narrow">
+                <thead>
+                <tr>
+                    <th rowSpan={2} className="is-vertical-bottom">Actuator</th>
+                    <th colSpan={services.length} className="has-text-centered has-no-borders">Spring Boot
+                        Version
+                    </th>
+                </tr>
+                <tr>
                     {services.map(service => (
-                        <th key={service.version + "-" + actuator}>
-                            {service.actuators.includes(actuator) ?
-                                <i className="far fa-check-circle"/> :
-                                <i className="far fa-times-circle"/>}
+                        <th key={`${service.version}-header`} align="center">
+                            <a href={`/app/${service.version}`} target="_blank">
+                                {service.version}
+                            </a>
                         </th>
                     ))}
                 </tr>
-            ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {[...springBootDefinedActuators].sort().map((actuator, row) => (
+                    <tr key={`${actuator}-${row}`}>
+                        <td>{actuator}</td>
+                        {services.map(service => (
+                            <th key={service.version + "-" + actuator} align="center">
+                                {service.actuators.includes(actuator) ?
+                                    <i className="far fa-check-circle"/> :
+                                    <i className="far fa-times-circle"/>}
+                            </th>
+                        ))}
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+        </>
     )
 }
