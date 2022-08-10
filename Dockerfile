@@ -5,5 +5,5 @@ RUN npm ci
 COPY . .
 RUN npx parcel build --public-url /
 
-FROM nginx:alpine
+FROM nginx:1.23.1-alpine
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
