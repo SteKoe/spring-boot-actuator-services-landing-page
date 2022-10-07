@@ -1,0 +1,38 @@
+.card {
+    overflow: hidden;
+}
+.card::after {
+    display: block;
+    content: '';
+    font-size: 8px;
+    position: absolute;
+    padding: 2px 4px;
+    top: 0;
+    left: 0;
+    font-weight: 700;
+    border-bottom-right-radius: 0.25rem;
+    opacity: 0;
+
+    transition: all 250ms;
+    color: white;
+}
+.card a {
+    transition: color 250ms;
+}
+.card .image {
+    transition: filter 250ms;
+}
+
+.card--disabled .image {
+    filter: grayscale(1);
+}
+.card--disabled a {
+    pointer-events: none;
+    color: #B3B3B3;
+}
+.card--disabled::after {
+    opacity: 1;
+    content: 'offline';
+    background-color: #B3B3B3;
+    color: white;
+}
