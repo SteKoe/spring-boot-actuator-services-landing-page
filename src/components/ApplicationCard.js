@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
-import axios from "axios";
-axios.defaults.timeout = 1_500;
-
 import classNames from "classnames";
 
 import "./ApplicationCard.css";
+import axios from "../utils/axios";
+
+axios.defaults.timeout = 1_500;
 
 export function ApplicationCard({id, version, title, logo, links}) {
     const [isOffline, setIsOffline] = useState(false)

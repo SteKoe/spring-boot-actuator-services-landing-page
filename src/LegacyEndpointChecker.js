@@ -1,5 +1,5 @@
 import {springBootDefinedActuators} from "./config";
-import axios from "axios";
+import axios from "./utils/axios";
 
 export async function LegacyEndpointChecker(version, url) {
     let promises = springBootDefinedActuators.map(actuator => {
