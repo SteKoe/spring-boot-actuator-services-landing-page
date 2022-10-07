@@ -5,5 +5,8 @@ RUN npm ci
 COPY . .
 RUN npx parcel build --public-url /
 
-FROM nginx:alpine
-COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
+FROM node:lts-slim
+RUN npm i -g http-server
+COPY --from=builder /usr/src/app/dist /dist
+EXPOSE 8080
+CMD [ "http-server", "dist" ]
