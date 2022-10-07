@@ -1,11 +1,15 @@
-import {SbaInstancesList} from "./SbaInstancesList";
-import {SpringBootServicesList} from "./SpringBootServicesList";
+import {SbaInstancesList} from "./components/SbaInstancesList";
+import {SpringBootServicesList} from "./components/SpringBootServicesList";
+import {AppFooter} from "./components/AppFooter";
 
 export function App() {
     return (
         <>
-            <SbaInstancesList/>
-            <SpringBootServicesList />
+            <div className="container">
+                <SbaInstancesList/>
+                <SpringBootServicesList />
+            </div>
+            <AppFooter/>
         </>
     )
 }

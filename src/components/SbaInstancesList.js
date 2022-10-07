@@ -1,15 +1,16 @@
-import {springBootAdminVersions} from "./config";
-import logoSba from "./logo-sba.png"
+import {springBootAdminVersions} from "../config";
+import logoSba from "../logo-sba.png"
 import "./SbaInstancesList.css";
-import {ApplicationCard} from "./components/ApplicationCard";
+import {ApplicationCards} from "./ApplicationCards";
 
 export function SbaInstancesList() {
     return (
         <div className={"mt-6"}>
             <h2 className={"title is-3"}>Spring Boot Admin Instances</h2>
-            <p className={"grid"}>
+            <div className={"grid"}>
                 {
-                    ApplicationCard({
+                    ApplicationCards({
+                        id: 'sba',
                         title: 'Spring Boot Admin',
                         logo: logoSba,
                         versions: springBootAdminVersions,
@@ -29,7 +30,7 @@ export function SbaInstancesList() {
                         ]
                     })
                 }
-            </p>
+            </div>
         </div>
     );
 }

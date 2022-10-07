@@ -1,15 +1,16 @@
-import {springBootVersions} from "./config";
-import logo from "./logo-spring.png"
+import {springBootVersions} from "../config";
+import logo from "../logo-spring.png"
 import "./SbaInstancesList.css";
-import {ApplicationCard} from "./components/ApplicationCard";
+import {ApplicationCards} from "./ApplicationCards";
 
 export function SpringBootServicesList() {
     return (
         <div className={"mt-6"}>
             <h2 className={"title is-3"}>Spring Boot Applications</h2>
-            <p className={"grid"}>
+            <div className={"grid"}>
                 {
-                    ApplicationCard({
+                    ApplicationCards({
+                        id: 'app',
                         title: 'Spring Boot Services',
                         logo: logo,
                         versions: springBootVersions,
@@ -25,7 +26,7 @@ export function SpringBootServicesList() {
                         ]
                     })
                 }
-            </p>
+            </div>
         </div>
     );
 }
