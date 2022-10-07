@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build landing page
-        run: docker build -t stekoe/spring-boot-app:landing .
+        run: docker build -t stekoe/spring-boot-actuator-services-landing-page:latest .
 
       - name: Push landing page
-        run: docker push stekoe/spring-boot-app:landing
+        run: docker push stekoe/spring-boot-actuator-services-landing-page:latest
