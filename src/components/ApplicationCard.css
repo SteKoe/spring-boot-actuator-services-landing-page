@@ -1,5 +1,6 @@
 .card {
-    overflow: hidden;
+    align-self: start;
+    position: relative;
 }
 .card::after {
     display: block;
@@ -21,6 +22,9 @@
 }
 .card .image {
     transition: filter 250ms;
+}
+
+.card-actuators {
 }
 
 .card--disabled .image {

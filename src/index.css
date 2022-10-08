@@ -19,3 +19,7 @@
 .text-center {
     text-align: center;
 }
+
+.bt {
+    border-top: 1px solid #ededed;
+}

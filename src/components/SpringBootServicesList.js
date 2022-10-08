@@ -14,6 +14,7 @@ export function SpringBootServicesList() {
                         title: 'Spring Boot Services',
                         logo: logo,
                         versions: springBootVersions,
+                        showActuators: true,
                         links: [
                             {
                                 title: 'Config',

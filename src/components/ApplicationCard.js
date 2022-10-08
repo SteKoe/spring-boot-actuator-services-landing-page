@@ -3,10 +3,10 @@ import classNames from "classnames";
 
 import "./ApplicationCard.css";
 import axios from "../utils/axios";
+import {AppFeatures} from "./AppsFeatures";
 
 axios.defaults.timeout = 1_500;
-
-export function ApplicationCard({id, version, title, logo, links}) {
+export function ApplicationCard({id, version, title, logo, links, showActuators = false}) {
     const [isOffline, setIsOffline] = useState(false)
 
     let firstLink = links[0].href(version);
@@ -45,6 +45,11 @@ export function ApplicationCard({id, version, title, logo, links}) {
                     </div>
                 </div>
             </div>
+
+            {showActuators ?
+                <div className={"card-actuators"}>
+                    {AppFeatures({version})}
+                </div>: ''}
 
             {links.length > 0 && (
                 <footer className="card-footer">

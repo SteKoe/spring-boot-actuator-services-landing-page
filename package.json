@@ -5,7 +5,7 @@
   "private": true,
   "source": "src/index.html",
   "scripts": {
-    "start": "parcel",
+    "start": "parcel serve",
     "build": "parcel build"
   },
   "dependencies": {
@@ -13,11 +13,21 @@
     "axios": "^0.25.0",
     "bulma": "^0.9.3",
     "classnames": "^2.3.2",
+    "msw": "^0.47.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.2.1",
-    "parcel": "latest"
+    "parcel": "latest",
+    "parcel-plugin-static-files-copy": "^2.6.0"
+  },
+  "staticFiles": {
+    "staticPath": [
+      "mockServiceWorker.js"
+    ]
+  },
+  "msw": {
+    "workerDirectory": "dist"
   }
 }
