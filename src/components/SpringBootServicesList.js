@@ -11,7 +11,7 @@ export function SpringBootServicesList() {
                 {
                     ApplicationCards({
                         id: 'app',
-                        title: 'Spring Boot Services',
+                        title: 'Spring Boot Service',
                         logo: logo,
                         versions: springBootVersions,
                         showActuators: true,
@@ -19,10 +19,6 @@ export function SpringBootServicesList() {
                             {
                                 title: 'Config',
                                 href: (version) => `/app/${version}`
-                            },
-                            {
-                                title: 'Actuators',
-                                href: (version) => `/app/${version}/actuator`
                             }
                         ]
                     })

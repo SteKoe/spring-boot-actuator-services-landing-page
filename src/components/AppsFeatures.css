@@ -1,9 +1,16 @@
 .dropdown {
     display: block !important;
 }
+
+.dropdown-trigger .button {
+    padding: 0;
+    height: auto;
+}
+
 .dropdown-menu {
     width: 100% !important;
 }
+
 .dropdown-content {
     max-height: calc(33px * 7);
     overflow: auto;

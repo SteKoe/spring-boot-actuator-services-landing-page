@@ -46,11 +46,6 @@ export function ApplicationCard({id, version, title, logo, links, showActuators 
                 </div>
             </div>
 
-            {showActuators ?
-                <div className={"card-actuators"}>
-                    {AppFeatures({version})}
-                </div>: ''}
-
             {links.length > 0 && (
                 <footer className="card-footer">
                     {links.map(link => {
@@ -59,6 +54,7 @@ export function ApplicationCard({id, version, title, logo, links, showActuators 
                                className="card-footer-item">{link.title}</a>
                         )
                     })}
+                    {showActuators ? AppFeatures({version}) : ''}
                 </footer>
             )}
         </div>
